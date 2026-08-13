@@ -1,92 +1,199 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System of a Down - Blog</title>
 
   <style>
-    header{
-      background-color:  #860037;
-      color:#FFFFFF;
-      text-align: center;
+    /* Estilos Gerais */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
       max-width: 800px;
       margin: 0 auto;
     }
-    main{
-      background-color: #FFFFFF;
-      color: #03698f;
+
+    /* Cabeçalho */
+    header {
+      background: linear-gradient(135deg, #860037, #4a001e);
+      color: #ffffff;
       text-align: center;
-      max-width: 600px;
-      margin: 0,110 auto;
+      padding: 30px 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    header img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #dddddd;
+    }
+
+    /* Estilo do Menu Retrátil (Abrir e Fechar) */
+    details {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      padding: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    details[open] {
+      background-color: #252525;
+      border-color: #860037;
+    }
+
+    summary {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffffff;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* Seta indicativa de abrir/fechar */
+    summary::after {
+      content: '➕';
+      font-size: 1rem;
+      color: #860037;
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary::after {
+      content: '➖';
+    }
+
+    summary:hover {
+      color: #ff4d6d;
+    }
+
+    /* Conteúdo expandido */
+    .conteudo-retratil {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #333;
+      color: #ccc;
+    }
+
+    .conteudo-retratil img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .artigo-autor {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    /* Botões de Interação */
+    .botoes-interacao {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      background-color: #2a2a2a;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    button:hover {
+      background-color: #860037;
+      border-color: #860037;
+    }
+
+    button:active {
+      transform: scale(0.95);
     }
   </style>
-  <body>
-  <header>
-    
-    <img src="System_of_a_Down_live_in_Mexico_2026.jpg" width="200" alt="I, the copyright holder of this work, hereby publish it under the following license:
-Creative Commons CC-Zero	This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication.
-The person who associated a work with this deed has dedicated the work to the public domain by waiving all of their rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.">
-     
-    <h1>A historia da banda system of a down</h1>
-    <p>irei compartilha a trajetoria e ignificados por trás da banda</p>
-<p>System of a Down (também conhecida como SOAD ou simplesmente System) é uma banda de metal alternativo armênio-americana formada em Glendale, Califórnia, em 1994. Desde 1997, banda é composta pelo vocalista principal Serj Tankian, o guitarrista solo e vocalista Daron Malakian, o baixista Shavo Odadjian e o baterista John Dolmayan, que substituiu o baterista original Andy Khachaturian.</p>
-  </header>
-    
+</head>
 
-<main>
-    <article>
-        <img src="imagem-blog.png"
-            alt="Lopo conceitual de tecnologia e educacao: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi‑Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+<body>
 
-        <div>
-            <h2>Meu primeiro post</h2>
-            <p class="artigo-autor">Por: Marcelo Paludetto</p>
-            <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação
-                e curiosidades da área de tecnologia.</p>
-            <button>��<span>0</span></button>
-            <button>��<span>0</span></button>
+  <div class="container">
+
+    <header>
+      <img src="System_of_a_Down_live_in_Mexico_2026.jpg" alt="System of a Down ao vivo">
+      <h1>System of a Down</h1>
+      <p>Conheça a trajetória e os significados por trás da banda.</p>
+    </header>
+
+    <main>
+      
+      <details open>
+        <summary>🎸 História do System of a Down</summary>
+        <div class="conteudo-retratil">
+          <p><strong>System of a Down</strong> (também conhecida como SOAD ou simplesmente System) é uma banda de metal alternativo armênio-americana formada em Glendale, Califórnia, em 1994.</p>
+          <br>
+          <p>Desde 1997, a banda é composta pelo vocalista principal Serj Tankian, o guitarrista solo e vocalista Daron Malakian, o baixista Shavo Odadjian e o baterista John Dolmayan, que substituiu o baterista original Andy Khachaturian.</p>
+          <br>
+          <p>A banda ficou conhecida por misturar metal, rock, música tradicional armênia e letras repletas de críticas políticas, sociais e humanitárias.</p>
         </div>
-    </article>
-    <article>
-        <img src="imagem-blog.png"
-            alt="Logotipo conceitual de tecnologia e educacao: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+      </details>
 
-        <div>
-            <h2>Meu primeiro post</h2>
-            <p class="artigo-autor">Por: Marcelo Paludetto</p>
-            <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação
-                e curiosidades da área de tecnologia.</p>
-            <button>��<span>0</span></button>
-            <button>��<span>0</span></button>
+      <details>
+        <summary>🏆 Sucesso Mundial e Trajetória</summary>
+        <div class="conteudo-retratil">
+          <p>O grupo alcançou fama mundial no fim dos anos 1990 e início dos anos 2000 com álbuns marcantes como <em>Toxicity</em> e <em>Mezmerize</em>, que trouxeram sucessos como <strong>Chop Suey!</strong>, <strong>Toxicity</strong> e <strong>B.Y.O.B.</strong></p>
+          <br>
+          <p>Em 2006, a banda entrou em hiato para que seus integrantes pudessem seguir projetos individuais. Em 2011, retornaram aos palcos para apresentações e turnês mundiais.</p>
+          <br>
+          <p>Atualmente, o System of a Down é considerado uma das bandas mais influentes do metal moderno, reconhecida por seu estilo único e pelo engajamento no reconhecimento do genocídio armênio.</p>
         </div>
-    </article>
-</main>
-<script>
-  function botaoClicado() {
-    console.log("fui clicado");
-    let texto = botao.querySelector("span");
-    if (curtiu === false){
-        texto.textContent++;
-        curtiu = true;
-    } else {
-        texto.textContent--;
-        curtiu = false;
-    }
-}
-</script>
-    
-  <h3>System of a Down é uma banda de metal alternativo formada em 1994, na Los Angeles, por descendentes de armênios: Serj Tankian, Daron Malakian, Shavo Odadjian e John Dolmayan.</h3>
-    <p>A banda ficou conhecida por misturar metal, rock, música armênia e letras com críticas políticas, sociais e humanitárias.</p>
+      </details>
 
-<p>O grupo alcançou fama mundial no fim dos anos 1990 e início dos anos 2000 com álbuns como Toxicity e Mezmerize, que trouxeram sucessos como Chop Suey!, Toxicity e B.Y.O.B.</p>
-
-<p>Em 2006, a banda entrou em hiato para que seus integrantes pudessem seguir projetos individuais. Em 2011, retornou aos palcos para apresentações e turnês, embora tenha lançado poucas músicas inéditas desde então.</p>
-
-<p>Atualmente, o System of a Down é considerado uma das bandas mais influentes do metal moderno, reconhecida por seu estilo único, performances marcantes e pelo engajamento em causas sociais, especialmente na divulgação da história e do reconhecimento do genocídio armênio.</p>
-
-  
-</body>
-</html>
+      <details>
+        <summary>📝 Post 1: Boas-vindas ao Blog</summary>
+        <div class="conteudo-retratil">
+          <img src="imagem-blog.png" alt="Logotipo conceitual de tecnologia e educação">
+          <p class="artigo-autor">Por: Marcelo Paludetto</p>
+          <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades sobre
