@@ -6,7 +6,7 @@
   <title>System of a Down - Blog</title>
 
   <style>
-    /* Estilos Gerais */
+    /* Estilos Gerais Simplificados */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,145 +14,107 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333333;
+      line-height: 1.5;
       padding: 20px;
     }
 
     .container {
       max-width: 800px;
       margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #cccccc;
     }
 
-    /* Cabeçalho */
+    /* Cabeçalho Simplificado */
     header {
-      background: linear-gradient(135deg, #860037, #4a001e);
+      background-color: #860037;
       color: #ffffff;
       text-align: center;
-      padding: 30px 20px;
-      border-radius: 12px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      margin-bottom: 20px;
     }
 
     header img {
       max-width: 100%;
       height: auto;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      display: block;
+      margin: 0 auto 15px auto;
+      border: 1px solid #ffffff;
     }
 
     header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: 2rem;
+      margin-bottom: 5px;
     }
 
     header p {
-      font-size: 1rem;
-      color: #dddddd;
+      font-size: 0.95rem;
+      color: #f0f0f0;
     }
 
-    /* Estilo do Menu Retrátil (Abrir e Fechar) */
+    /* Botões de Like e Deslike logo abaixo da foto */
+    .botoes-like {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .botoes-like button {
+      background-color: #ffffff;
+      color: #860037;
+      border: 1px solid #ffffff;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .botoes-like button:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Menu Retrátil Simplificado */
     details {
-      background-color: #1e1e1e;
-      border: 1px solid #333;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      padding: 15px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      margin-bottom: 10px;
+      padding: 10px 15px;
     }
 
     details[open] {
-      background-color: #252525;
       border-color: #860037;
     }
 
     summary {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: bold;
-      color: #ffffff;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    /* Seta indicativa de abrir/fechar */
-    summary::after {
-      content: '➕';
-      font-size: 1rem;
       color: #860037;
-      transition: transform 0.2s ease;
+      cursor: pointer;
     }
 
-    details[open] summary::after {
-      content: '➖';
-    }
-
-    summary:hover {
-      color: #ff4d6d;
-    }
-
-    /* Conteúdo expandido */
     .conteudo-retratil {
-      margin-top: 15px;
-      padding-top: 15px;
-      border-top: 1px solid #333;
-      color: #ccc;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      color: #444444;
     }
 
     .conteudo-retratil img {
       max-width: 100%;
-      border-radius: 6px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
     }
 
     .artigo-autor {
       font-style: italic;
-      font-size: 0.9rem;
-      color: #888;
-      margin-bottom: 10px;
-    }
-
-    /* Botões de Interação */
-    .botoes-interacao {
-      margin-top: 15px;
-      display: flex;
-      gap: 10px;
-    }
-
-    button {
-      background-color: #2a2a2a;
-      color: #fff;
-      border: 1px solid #444;
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: background 0.2s, transform 0.1s;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    button:hover {
-      background-color: #860037;
-      border-color: #860037;
-    }
-
-    button:active {
-      transform: scale(0.95);
+      font-size: 0.85rem;
+      color: #666666;
+      margin-bottom: 8px;
     }
   </style>
 </head>
@@ -163,7 +125,13 @@
 
     <header>
       <img src="System_of_a_Down_live_in_Mexico_2026.jpg" alt="System of a Down ao vivo">
-      <h1>System of a Down</h1>
+      
+      <div class="botoes-like">
+        <button onclick="darLike()">👍 Like (<span id="count-like">0</span>)</button>
+        <button onclick="darDeslike()">👎 Deslike (<span id="count-deslike">0</span>)</button>
+      </div>
+
+      <h1 style="margin-top: 15px;">System of a Down</h1>
       <p>Conheça a trajetória e os significados por trás da banda.</p>
     </header>
 
@@ -196,4 +164,28 @@
         <div class="conteudo-retratil">
           <img src="imagem-blog.png" alt="Logotipo conceitual de tecnologia e educação">
           <p class="artigo-autor">Por: Marcelo Paludetto</p>
-          <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades sobre
+          <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades sobre a banda.</p>
+        </div>
+      </details>
+
+    </main>
+
+  </div>
+
+  <script>
+    let likes = 0;
+    let deslikes = 0;
+
+    function darLike() {
+      likes++;
+      document.getElementById('count-like').innerText = likes;
+    }
+
+    function darDeslike() {
+      deslikes++;
+      document.getElementById('count-deslike').innerText = deslikes;
+    }
+  </script>
+
+</body>
+</html>
