@@ -56,10 +56,10 @@
       color: #f0f0f0;
     }
 
-    /* Botões de Like e Deslike logo abaixo da foto */
+    /* Botões de Like e Deslike gerais e em cada texto */
     .botoes-like {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 15px;
       margin-top: 15px;
     }
@@ -67,7 +67,7 @@
     .botoes-like button {
       background-color: #ffffff;
       color: #860037;
-      border: 1px solid #ffffff;
+      border: 1px solid #860037;
       padding: 6px 14px;
       font-size: 0.9rem;
       font-weight: bold;
@@ -124,19 +124,18 @@
   <div class="container">
 
     <header>
-      <img src="System_of_a_Down_live_in_Mexico_2026.jpg" alt="System of a Down ao vivo">
-      
-      <div class="botoes-like">
-        <button onclick="darLike()">👍 Like (<span id="count-like">0</span>)</button>
-        <button onclick="darDeslike()">👎 Deslike (<span id="count-deslike">0</span>)</button>
-      </div>
+      <!-- Imagem com link para a Wikipedia -->
+      <a href="https://pt.wikipedia.org/wiki/System_of_a_Down" target="_blank" rel="noopener noreferrer">
+        <img src="System_of_a_Down_live_in_Mexico_2026.jpg" alt="System of a Down ao vivo">
+      </a>
 
-      <h1 style="margin-top: 15px;">System of a Down</h1>
+      <h1>System of a Down</h1>
       <p>Conheça a trajetória e os significados por trás da banda.</p>
     </header>
 
     <main>
       
+      <!-- Seção 1 -->
       <details open>
         <summary>🎸 História do System of a Down</summary>
         <div class="conteudo-retratil">
@@ -145,9 +144,15 @@
           <p>Desde 1997, a banda é composta pelo vocalista principal Serj Tankian, o guitarrista solo e vocalista Daron Malakian, o baixista Shavo Odadjian e o baterista John Dolmayan, que substituiu o baterista original Andy Khachaturian.</p>
           <br>
           <p>A banda ficou conhecida por misturar metal, rock, música tradicional armênia e letras repletas de críticas políticas, sociais e humanitárias.</p>
+          
+          <div class="botoes-like">
+            <button onclick="votar('like-historia')">👍 Like (<span id="like-historia">0</span>)</button>
+            <button onclick="votar('deslike-historia')">👎 Deslike (<span id="deslike-historia">0</span>)</button>
+          </div>
         </div>
       </details>
 
+      <!-- Seção 2 -->
       <details>
         <summary>🏆 Sucesso Mundial e Trajetória</summary>
         <div class="conteudo-retratil">
@@ -156,15 +161,26 @@
           <p>Em 2006, a banda entrou em hiato para que seus integrantes pudessem seguir projetos individuais. Em 2011, retornaram aos palcos para apresentações e turnês mundiais.</p>
           <br>
           <p>Atualmente, o System of a Down é considerado uma das bandas mais influentes do metal moderno, reconhecida por seu estilo único e pelo engajamento no reconhecimento do genocídio armênio.</p>
+          
+          <div class="botoes-like">
+            <button onclick="votar('like-sucesso')">👍 Like (<span id="like-sucesso">0</span>)</button>
+            <button onclick="votar('deslike-sucesso')">👎 Deslike (<span id="deslike-sucesso">0</span>)</button>
+          </div>
         </div>
       </details>
 
+      <!-- Seção 3 -->
       <details>
         <summary>📝 Post 1: Boas-vindas ao Blog</summary>
         <div class="conteudo-retratil">
           <img src="imagem-blog.png" alt="Logotipo conceitual de tecnologia e educação">
           <p class="artigo-autor">Por: Marcelo Paludetto</p>
           <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades sobre a banda.</p>
+          
+          <div class="botoes-like">
+            <button onclick="votar('like-post1')">👍 Like (<span id="like-post1">0</span>)</button>
+            <button onclick="votar('deslike-post1')">👎 Deslike (<span id="deslike-post1">0</span>)</button>
+          </div>
         </div>
       </details>
 
@@ -173,17 +189,11 @@
   </div>
 
   <script>
-    let likes = 0;
-    let deslikes = 0;
-
-    function darLike() {
-      likes++;
-      document.getElementById('count-like').innerText = likes;
-    }
-
-    function darDeslike() {
-      deslikes++;
-      document.getElementById('count-deslike').innerText = deslikes;
+    // Função genérica para somar 1 ao contador correspondente
+    function votar(elementId) {
+      const elemento = document.getElementById(elementId);
+      let valorAtual = parseInt(elemento.innerText);
+      elemento.innerText = valorAtual + 1;
     }
   </script>
 
